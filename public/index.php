@@ -186,6 +186,31 @@ require_once '../vendor/autoload.php';
             font-weight: 700;
             margin-bottom: 10px;
         }
+        
+        /* Introduction Section Styles */
+        .introduction-section {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .introduction-content {
+            text-align: justify;
+        }
+        
+        .introduction-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: justify;
+        }
+        
+        .introduction-text:last-child {
+            margin-bottom: 0;
+        }
     </style>
 </head>
 <body>
@@ -274,6 +299,33 @@ require_once '../vendor/autoload.php';
                                     </p>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Introduction Section -->
+        <div class="container">
+            <div class="introduction-section">
+                <h2 class="text-center mb-5">
+                    <i class="fas fa-info-circle"></i> Introduction
+                </h2>
+                
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="introduction-content">
+                            <p class="introduction-text">
+                                Autism Spectrum Disorder (ASD) is a neurodevelopmental disorder that affects communication, social interactions, and behavior. Its rising prevalence and significant social impact have drawn increasing attention from researchers, healthcare professionals, and policymakers. Early diagnosis and intervention are crucial, as behavioral therapies are most effective when started early, yet children are often diagnosed much later than ideal.
+                            </p>
+                            
+                            <p class="introduction-text">
+                                Machine learning (ML) offers promising tools to improve ASD detection. Algorithms like Support Vector Machines, Neural Networks, and Deep Learning can analyze behavioral and neuroimaging data to identify subtle patterns, speeding up and improving diagnostic accuracy.
+                            </p>
+                            
+                            <p class="introduction-text">
+                                This research proposes a lightweight ML framework using behavioral questionnaire data. By applying PCA for feature selection and SMOTE for class balancing, optimized classifiers such as Decision Trees, Random Forests, and XGBoost are evaluated to provide a reliable, cost-effective approach for early ASD detection, suitable for telemedicine applications.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -471,7 +523,7 @@ require_once '../vendor/autoload.php';
                         <h4 class="mt-4 mb-3">Key Features:</h4>
                         <ul>
                             <li><strong>Data Preprocessing:</strong> Comprehensive cleaning, encoding, and balancing pipeline</li>
-                            <li><strong>Advanced Algorithms:</strong> Decision Tree, Random Forest, and Support Vector Machine</li>
+                            <li><strong>Advanced Algorithms:</strong> Decision Tree, Random Forest, and Extreme Gradient Boosting (XGBoost)</li>
                             <li><strong>Performance Evaluation:</strong> Multiple metrics including accuracy, precision, recall, and F1-score</li>
                             <li><strong>Visualization:</strong> Interactive charts and confusion matrices</li>
                             <li><strong>Research Ready:</strong> Conference presentation interface with detailed methodology</li>
