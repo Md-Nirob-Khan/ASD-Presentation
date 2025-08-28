@@ -705,132 +705,118 @@ require_once '../vendor/autoload.php';
         
         <div class="features">
             <div class="row justify-content-center">
-                <div class="col-lg-12">
+                <div class="col-lg-10">
                     <h2 class="text-center text-white mb-5">
                         <i class="fas fa-cogs"></i> Research Methodology
                     </h2>
                     
-                    <!-- ML Pipeline Flowchart -->
-                    <div class="pipeline-container">
-                        <!-- Phase 1: Initial Data Preparation -->
-                        <div class="pipeline-phase">
-                            <h4 class="phase-title">Phase 1: Initial Data Preparation</h4>
-                            <div class="pipeline-flow">
-                                <div class="flow-step start-step">
-                                    <i class="fas fa-play-circle"></i>
-                                    <span>Start</span>
-                                </div>
-                                <div class="flow-arrow">↓</div>
-                                
-                                <div class="flow-step data-step">
+                    <!-- Phase 1: Data Preparation Cards -->
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <h4 class="text-center text-white mb-4">Phase 1: Data Preparation</h4>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature-card text-center text-white">
+                                <div class="feature-icon">
                                     <i class="fas fa-database"></i>
-                                    <span>Load Dataset</span>
                                 </div>
-                                <div class="flow-arrow">↓</div>
-                                
-                                <div class="flow-step data-step">
+                                <h4>Data Loading</h4>
+                                <p>Load and merge training/testing datasets, handle missing values, and perform initial data cleaning</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature-card text-center text-white">
+                                <div class="feature-icon">
                                     <i class="fas fa-cogs"></i>
-                                    <span>Process Data</span>
                                 </div>
-                                <div class="flow-arrow">↓</div>
-                                
-                                <div class="flow-step decision-step">
-                                    <i class="fas fa-question-circle"></i>
-                                    <span>Check Class Imbalance</span>
-                                </div>
-                                
-                                <div class="flow-branch">
-                                    <div class="branch-yes">
-                                        <span class="branch-label">Yes</span>
-                                        <div class="flow-step smote-step">
-                                            <i class="fas fa-balance-scale"></i>
-                                            <span>SMOTE</span>
-                                        </div>
-                                    </div>
-                                    <div class="branch-no">
-                                        <span class="branch-label">No</span>
-                                        <div class="flow-step skip-step">
-                                            <i class="fas fa-forward"></i>
-                                            <span>Skip</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                <h4>Data Processing</h4>
+                                <p>Clean data, encode categorical features, and prepare for machine learning algorithms</p>
                             </div>
                         </div>
-                        
-                        <!-- Phase 2: Feature Selection and Model Training -->
-                        <div class="pipeline-phase">
-                            <h4 class="phase-title">Phase 2: Feature Selection and Model Training</h4>
-                            <div class="pipeline-flow">
-                                <div class="flow-step feature-step">
+                        <div class="col-md-4">
+                            <div class="feature-card text-center text-white">
+                                <div class="feature-icon">
+                                    <i class="fas fa-balance-scale"></i>
+                                </div>
+                                <h4>Class Balancing</h4>
+                                <p>Apply SMOTE technique to address class imbalance and ensure fair model training</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Phase 2: Feature Selection & Model Training Cards -->
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <h4 class="text-center text-white mb-4">Phase 2: Feature Selection & Model Training</h4>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="feature-card text-center text-white">
+                                <div class="feature-icon">
                                     <i class="fas fa-chart-line"></i>
-                                    <span>Feature Selection (PCA)</span>
                                 </div>
-                                <div class="flow-arrow">↓</div>
-                                
-                                <div class="models-parallel">
-                                    <div class="model-branch">
-                                        <div class="flow-step model-step">
-                                            <i class="fas fa-tree"></i>
-                                            <span>Random Forest Classifier</span>
-                                        </div>
-                                    </div>
-                                    <div class="model-branch">
-                                        <div class="flow-step model-step">
-                                            <i class="fas fa-rocket"></i>
-                                            <span>XGBoost Classifier</span>
-                                        </div>
-                                    </div>
-                                    <div class="model-branch">
-                                        <div class="flow-step model-step">
-                                            <i class="fas fa-sitemap"></i>
-                                            <span>Decision Tree Classifier</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="flow-arrow">↓</div>
-                                <div class="flow-step cv-step">
-                                    <i class="fas fa-check-double"></i>
-                                    <span>3-Fold, 5-Fold, 10-Fold<br>Stratified Cross-Validation</span>
-                                </div>
+                                <h4>PCA Reduction</h4>
+                                <p>Principal Component Analysis to reduce dimensionality while retaining 95% variance</p>
                             </div>
                         </div>
-                        
-                        <!-- Phase 3: Model Evaluation and Analysis -->
-                        <div class="pipeline-phase">
-                            <h4 class="phase-title">Phase 3: Model Evaluation and Analysis</h4>
-                            <div class="pipeline-flow">
-                                <div class="flow-step evaluation-step">
-                                    <i class="fas fa-search"></i>
-                                    <span>Find Best Number of Features<br>Best Score</span>
+                        <div class="col-md-3">
+                            <div class="feature-card text-center text-white">
+                                <div class="feature-icon">
+                                    <i class="fas fa-tree"></i>
                                 </div>
-                                <div class="flow-arrow">↓</div>
-                                
-                                <div class="flow-step metrics-step">
+                                <h4>Random Forest</h4>
+                                <p>Ensemble method with 10 decision trees for robust classification performance</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="feature-card text-center text-white">
+                                <div class="feature-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <h4>XGBoost</h4>
+                                <p>Extreme Gradient Boosting for advanced ensemble learning and high accuracy</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="feature-card text-center text-white">
+                                <div class="feature-icon">
+                                    <i class="fas fa-sitemap"></i>
+                                </div>
+                                <h4>Decision Tree</h4>
+                                <p>Classic CART algorithm for interpretable decision-making and baseline performance</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Phase 3: Evaluation & Analysis Cards -->
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 class="text-center text-white mb-4">Phase 3: Evaluation & Analysis</h4>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature-card text-center text-white">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check-double"></i>
+                                </div>
+                                <h4>Cross-Validation</h4>
+                                <p>3-Fold, 5-Fold, and 10-Fold stratified cross-validation for robust model evaluation</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature-card text-center text-white">
+                                <div class="feature-icon">
                                     <i class="fas fa-chart-bar"></i>
-                                    <span>Evaluate Models</span>
-                                    <div class="metrics-list">
-                                        <span>• Accuracy</span>
-                                        <span>• Precision</span>
-                                        <span>• Recall</span>
-                                        <span>• F1-Score</span>
-                                        <span>• Confusion Matrix</span>
-                                        <span>• ROC Curve</span>
-                                    </div>
                                 </div>
-                                <div class="flow-arrow">↓</div>
-                                
-                                <div class="flow-step analysis-step">
+                                <h4>Performance Metrics</h4>
+                                <p>Comprehensive evaluation using Accuracy, Precision, Recall, F1-Score, Confusion Matrix, and ROC Curve</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature-card text-center text-white">
+                                <div class="feature-icon">
                                     <i class="fas fa-chart-pie"></i>
-                                    <span>Analyze Performance<br>Visualizations & Interpretations</span>
                                 </div>
-                                <div class="flow-arrow">↓</div>
-                                
-                                <div class="flow-step end-step">
-                                    <i class="fas fa-flag-checkered"></i>
-                                    <span>End</span>
-                                </div>
+                                <h4>Result Analysis</h4>
+                                <p>Visualize performance, interpret results, and identify optimal model configurations</p>
                             </div>
                         </div>
                     </div>
@@ -1040,3 +1026,4 @@ require_once '../vendor/autoload.php';
     </script>
 </body>
 </html>
+
