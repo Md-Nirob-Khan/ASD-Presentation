@@ -211,6 +211,83 @@ require_once '../vendor/autoload.php';
         .introduction-text:last-child {
             margin-bottom: 0;
         }
+        
+        /* Comparison Table Styles */
+        .comparison-section {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-table {
+            font-size: 0.9rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-table th {
+            background: linear-gradient(45deg, #667eea, #764ba2) !important;
+            color: white !important;
+            font-weight: 600;
+            text-align: center;
+            vertical-align: middle;
+            padding: 15px 8px;
+            border: none;
+        }
+        
+        .comparison-table td {
+            padding: 12px 8px;
+            vertical-align: top;
+            border: 1px solid #dee2e6;
+        }
+        
+        .comparison-table tbody tr:hover {
+            background-color: rgba(102, 126, 234, 0.1);
+            transition: background-color 0.3s ease;
+        }
+        
+        .proposed-research {
+            background: linear-gradient(45deg, rgba(255, 215, 61, 0.1), rgba(255, 215, 61, 0.05));
+            border-left: 4px solid #ffd93d;
+        }
+        
+        .proposed-research:hover {
+            background: linear-gradient(45deg, rgba(255, 215, 61, 0.2), rgba(255, 215, 61, 0.1));
+        }
+        
+        .accuracy-high {
+            color: #28a745;
+            font-weight: 600;
+        }
+        
+        .accuracy-medium {
+            color: #ffc107;
+            font-weight: 600;
+        }
+        
+        .accuracy-unknown {
+            color: #6c757d;
+            font-style: italic;
+        }
+        
+        .table-responsive {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        @media (max-width: 768px) {
+            .comparison-table {
+                font-size: 0.8rem;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 8px 4px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -328,6 +405,96 @@ require_once '../vendor/autoload.php';
                             </p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Comparison Table Section -->
+        <div class="container">
+            <div class="comparison-section">
+                <h2 class="text-center mb-5">
+                    <i class="fas fa-table"></i> Comparison of Different ML Approaches for ASD Detection
+                </h2>
+                
+                <div class="table-responsive">
+                    <table class="table table-striped comparison-table">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Author(s) / Year</th>
+                                <th>Detection Method</th>
+                                <th>ML Algorithms Used</th>
+                                <th>Datasets / Age Groups</th>
+                                <th>Accuracy</th>
+                                <th>Key Features</th>
+                                <th>Summary of Challenges and Solutions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="proposed-research">
+                                <td><strong>Proposed Research</strong></td>
+                                <td>ML-based ASD detection</td>
+                                <td>RF (Random Forest), DT (Decision Tree), XGBoost (Extreme Gradient Boosting)</td>
+                                <td>ASD datasets across various age groups (children, adults, toddlers)</td>
+                                <td><span class="accuracy-high">90-95%</span></td>
+                                <td>Feature selection (PCA, SMOTE), dataset balancing, optimized model selection</td>
+                                <td>This study optimizes feature selection, balances datasets with SMOTE, and enhances model performance, ensuring better generalization across different age groups.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Xu et al. [1]</strong></td>
+                                <td>ML in brain imaging for ASD detection</td>
+                                <td>SVM (Support Vector Machine), Neural Networks, Deep Learning</td>
+                                <td>Brain imaging data (fMRI, structural MRI)</td>
+                                <td><span class="accuracy-medium">85-90%</span></td>
+                                <td>Utilized high-dimensional fMRI and MRI data</td>
+                                <td>This study suffered from dataset biases and dependence on high-quality neuroimaging data, whereas the proposed research uses structured datasets from diverse age groups, reducing dependency on expensive neuroimaging techniques.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Asmetha Jeyarani & Senthilkumar [2] [6]</strong></td>
+                                <td>Eye tracking with ML/DL for ASD detection</td>
+                                <td>SVM, CNN (Convolutional Neural Network), RF, KNN (K-Nearest Neighbors), DT, Neural Networks</td>
+                                <td>Eye movement data from ASD and TD (Typically Developing) children</td>
+                                <td><span class="accuracy-medium">83%</span></td>
+                                <td>Eye-tracking data, sentiment analysis with BERT, ChatGPT</td>
+                                <td>Their approach struggled with aggregation-type sentences and required labeled data, but the proposed study avoids these issues by focusing on structured, preprocessed datasets with well-defined features.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rownak Ara, Rasul et al. [3]</strong></td>
+                                <td>ML models for early ASD detection</td>
+                                <td>LR (Logistic Regression), SVM, KNN, RF, DT, ANN (Artificial Neural Network), XGB (XGBoost)</td>
+                                <td>ASD datasets across children and adults</td>
+                                <td><span class="accuracy-high">100% (children), 97.14% (adults), 94.28% (combined dataset)</span></td>
+                                <td>Supervised learning, hyperparameter tuning</td>
+                                <td>This research faced challenges with unbalanced datasets and label prediction issues, which the proposed study overcomes using SMOTE for balancing and refining model generalization across all age groups.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mukherjee et al. [4]</strong></td>
+                                <td>Language models (BERT, ChatGPT) for ASD detection</td>
+                                <td>BERT, ChatGPT</td>
+                                <td>Parent dialogues (natural language)</td>
+                                <td><span class="accuracy-medium">83%</span></td>
+                                <td>Sentiment analysis, cosine similarity between sentences</td>
+                                <td>This study was limited by data quality and inefficiency in analyzing complex sentence structures, whereas the proposed research avoids NLP-based diagnosis and instead focuses on structured numerical features for better reliability.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tamizhmalar et al. [5]</strong></td>
+                                <td>Deep learning for ASD detection using multimodal data</td>
+                                <td>CNN, RNN (Recurrent Neural Network)</td>
+                                <td>Neuroimaging, facial expressions, vocal patterns</td>
+                                <td><span class="accuracy-unknown">Not specified</span></td>
+                                <td>Multimodal data integration (neuroimaging, facial expressions, vocal patterns)</td>
+                                <td>Their approach faced complexity issues and required large datasets, but the proposed research achieves high accuracy with a simpler single-modality approach, making it more practical and scalable.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Vanil Kumar et al. [6]</strong></td>
+                                <td>ML for ASD detection with feature scaling</td>
+                                <td>AB (AdaBoost), RF, DT, KNN, GNB (Gaussian Naive Bayes), LR, SVM, LDA (Linear Discriminant Analysis)</td>
+                                <td>ASD datasets across toddlers, children, adolescents, and adults</td>
+                                <td><span class="accuracy-high">99.25% (toddlers), 97.95% (children), 97.12% (adolescents), 99.03% (adults)</span></td>
+                                <td>Feature scaling techniques (QT, PT, Normalizer, MAS)</td>
+                                <td>This study faced challenges with feature scaling optimization and dataset quality, but the proposed study improves feature selection techniques and ensures better dataset optimization for higher accuracy.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
