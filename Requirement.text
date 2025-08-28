@@ -1,0 +1,239 @@
+
+
+# 📌 Research Presentation Web App — Full Requirement Document (PHP Only)
+
+---
+
+## 1) Project Overview
+
+* **Title:** Machine Learning-Based Classification of Autism Spectrum Disorder (PHP Implementation)
+* **Goal:** Create a PHP-based web application to:
+
+  1. Load and combine `train.csv` + `test.csv` datasets
+  2. Preprocess the dataset (cleaning, encoding, balancing with SMOTE/oversampling, PCA)
+  3. Train multiple ML models (Decision Tree, Random Forest, SVM)
+  4. Evaluate models using Accuracy, Precision, Recall, F1-score, Confusion Matrix
+  5. Visualize results (charts, tables, heatmaps)
+  6. Provide a clean **presentation-ready web interface** (conference demo)
+
+---
+
+## 2) Technology Stack
+
+* **Language:** PHP 8+
+* **Package Manager:** Composer
+* **PHP Libraries:**
+
+  * `league/csv` → CSV handling
+  * `php-ai/php-ml` → Machine Learning (classification, PCA, cross-validation)
+  * `jpgraph/jpgraph` → Charts (bar, line, heatmap)
+  * `symfony/var-dumper` → Debugging (optional)
+* **Server Requirements:**
+
+  * Apache/Nginx + PHP (XAMPP, WAMP, or LAMP works)
+  * MySQL (optional, for saving results persistently)
+
+---
+
+## 3) Dataset Requirements
+
+* Files:
+
+  * `train.csv` (training dataset)
+  * `test.csv` (testing dataset)
+* **Merging:** Both will be merged into one dataset before preprocessing.
+* **Label Column:** Assumed as `class` (values = `ASD` or `Not ASD`)
+* **Features:** Numeric & categorical features (to be encoded)
+
+---
+
+## 4) Functional Requirements
+
+### A) Data Handling
+
+1. Load `train.csv` and `test.csv` from `/data/`.
+2. Merge into one dataset.
+3. Split into **features (X)** and **labels (y)**.
+4. Show dataset statistics:
+
+   * Total rows
+   * Features count
+   * Class distribution (before/after balancing)
+
+---
+
+### B) Preprocessing
+
+1. **Cleaning**
+
+   * Handle missing values (remove or impute).
+   * Remove duplicates.
+2. **Encoding**
+
+   * Convert categorical values (e.g., gender, ethnicity) → numeric (one-hot encoding).
+3. **Balancing**
+
+   * Apply **SMOTE** (if not feasible in PHP, apply oversampling).
+   * Show class distribution before & after balancing.
+4. **Dimensionality Reduction**
+
+   * Apply PCA to reduce redundancy.
+   * Retain \~95% variance (\~7 PCs).
+
+---
+
+### C) Model Training
+
+Train the following ML models using `php-ai/php-ml`:
+
+1. **Decision Tree (CART)**
+2. **Random Forest (Ensemble of DTs)**
+3. **SVM (Support Vector Machine)**
+
+Training should support:
+
+* Train/Test split (70:30)
+* Cross-validation (3-fold, 5-fold, 10-fold)
+
+---
+
+### D) Evaluation
+
+For each model:
+
+* Accuracy = (TP + TN) / (TP + TN + FP + FN)
+* Precision = TP / (TP + FP)
+* Recall = TP / (TP + FN)
+* F1-score = 2 × (Precision × Recall) / (Precision + Recall)
+* Confusion Matrix = 2×2 grid
+
+Save results as JSON in `/results/metrics.json` & `/results/confusion.json`.
+
+---
+
+### E) Web Visualization
+
+The PHP web app must have the following **pages**:
+
+1. **Home Page (`index.php`)**
+
+   * Paper title & author list
+   * “Start Presentation” button
+
+2. **Dataset Page (`dataset.php`)**
+
+   * Dataset statistics (rows, features, classes)
+   * Bar chart: Class imbalance before & after SMOTE
+
+3. **Methodology Page (`methodology.php`)**
+
+   * Stepper/flowchart: Cleaning → Encoding → SMOTE → PCA → Training → Evaluation
+
+4. **Results Page (`results.php`)**
+
+   * Table of metrics (DT, RF, SVM)
+   * Bar/Line chart comparing Accuracy, Precision, Recall, F1
+   * Confusion matrices displayed as heatmaps
+
+5. **Conclusion Page (`conclusion.php`)**
+
+   * Summary: XGBoost/RandomForest best performer, PCA+SMOTE effective
+   * Future work: Try LightGBM, CatBoost, Deep Learning
+
+---
+
+## 5) Non-Functional Requirements
+
+* **Performance:** Must handle ≥10,000 rows without timeout
+* **Offline Support:** Works locally without internet
+* **Security:** Sanitize CSV uploads (prevent injection)
+* **UI/UX:** Clean, projector-friendly, responsive layout
+* **Accessibility:** ARIA labels, readable font sizes
+
+---
+
+## 6) File Structure
+
+```
+/project-root
+  /data
+    train.csv
+    test.csv
+  /results
+    metrics.json
+    confusion.json
+  /src
+    DatasetLoader.php
+    Preprocessor.php
+    Trainer.php
+    Evaluator.php
+  /public
+    index.php
+    dataset.php
+    methodology.php
+    results.php
+    conclusion.php
+  composer.json
+```
+
+---
+
+## 7) Class Responsibilities
+
+* **DatasetLoader**
+
+  * `loadCSV()` → load CSV as array
+  * `mergeDatasets()` → merge train + test
+
+* **Preprocessor**
+
+  * `cleanData()` → handle missing, duplicates
+  * `encodeCategorical()` → one-hot encode categorical features
+  * `applySMOTE()` → balance dataset
+  * `applyPCA()` → dimensionality reduction
+
+* **Trainer**
+
+  * `trainDecisionTree()`
+  * `trainRandomForest()`
+  * `trainSVM()`
+
+* **Evaluator**
+
+  * `evaluateMetrics()` → Accuracy, Precision, Recall, F1
+  * `confusionMatrix()` → return confusion matrix array
+  * `crossValidation()` → 3/5/10 folds
+
+---
+
+## 8) Charts & Visualization
+
+* **Bar Chart** → Model comparison (Accuracy, Precision, Recall, F1)
+* **Line Chart** → Accuracy trend across folds
+* **Heatmap** → Confusion matrix visualization
+* **Flowchart** → Static PNG/HTML showing methodology steps
+
+---
+
+## 9) Acceptance Criteria
+
+* [ ] App merges `train.csv` + `test.csv` into one dataset
+* [ ] Displays dataset statistics correctly
+* [ ] Shows class imbalance (before & after SMOTE)
+* [ ] Applies PCA (\~95% variance retained)
+* [ ] Trains DT, RF, SVM successfully
+* [ ] Outputs Accuracy, Precision, Recall, F1 for each model
+* [ ] Confusion matrices displayed as heatmaps
+* [ ] Results saved in `/results/metrics.json`
+* [ ] Presentation pages (Home, Dataset, Methodology, Results, Conclusion) work smoothly
+
+---
+
+## 10) Deployment
+
+* Run locally on **XAMPP
+* Open browser at `http://localhost/project-root/public/`
+* No external internet dependency
+
+---
+

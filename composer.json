@@ -1,0 +1,24 @@
+{
+    "name": "asd-ml/asd-classification",
+    "description": "Machine Learning-Based Classification of Autism Spectrum Disorder - PHP Implementation",
+    "type": "project",
+    "require": {
+        "php": ">=8.0",
+        "league/csv": "^9.0",
+        "php-ai/php-ml": "^0.10.0",
+        "jpgraph/jpgraph": "^4.0",
+        "symfony/var-dumper": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ASDML\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Research Team",
+            "email": "research@example.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}

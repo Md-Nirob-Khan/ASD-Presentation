@@ -1,0 +1,21 @@
+age,gender,ethnicity,family_history,communication_delay,social_interaction,repetitive_behavior,sensory_sensitivity,class
+5,Male,White,Yes,Yes,Yes,Yes,Yes,ASD
+6,Female,Hispanic,No,No,No,No,No,Not ASD
+4,Male,Asian,Yes,Yes,Yes,No,Yes,ASD
+7,Female,White,No,No,No,No,No,Not ASD
+5,Male,Black,Yes,Yes,No,Yes,Yes,ASD
+6,Female,Hispanic,No,No,No,No,No,Not ASD
+4,Male,White,Yes,Yes,Yes,Yes,Yes,ASD
+8,Female,Asian,No,No,No,No,No,Not ASD
+5,Male,Black,Yes,Yes,Yes,No,Yes,ASD
+6,Female,White,No,No,No,No,No,Not ASD
+4,Male,Hispanic,Yes,Yes,Yes,Yes,Yes,ASD
+7,Female,Asian,No,No,No,No,No,Not ASD
+5,Male,White,Yes,Yes,No,Yes,Yes,ASD
+6,Female,Black,No,No,No,No,No,Not ASD
+4,Male,Hispanic,Yes,Yes,Yes,No,Yes,ASD
+8,Female,White,No,No,No,No,No,Not ASD
+5,Male,Asian,Yes,Yes,Yes,Yes,Yes,ASD
+6,Female,Black,No,No,No,No,No,Not ASD
+4,Male,White,Yes,Yes,No,Yes,Yes,ASD
+7,Female,Hispanic,No,No,No,No,No,Not ASD
