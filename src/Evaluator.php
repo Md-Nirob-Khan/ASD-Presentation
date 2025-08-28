@@ -213,8 +213,14 @@ class Evaluator
             if ($modelName === 'random_forest') {
                 // Random Forest prediction (ensemble voting)
                 $predictions = $this->predictRandomForest($model, $testFeatures);
+            } elseif ($modelName === 'xgboost') {
+                // XGBoost prediction
+                $predictions = [];
+                foreach ($testFeatures as $feature) {
+                    $predictions[] = $model->predict($feature);
+                }
             } else {
-                // Single model prediction
+                // Single model prediction (Decision Tree)
                 $predictions = [];
                 foreach ($testFeatures as $feature) {
                     $predictions[] = $model->predict($feature);

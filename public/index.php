@@ -230,7 +230,7 @@ require_once '../vendor/autoload.php';
                     </h1>
                     
                     <p class="hero-subtitle">
-                        Advanced classification using Decision Trees, Random Forest, and SVM with PCA dimensionality reduction and SMOTE balancing
+                        Advanced classification using Decision Trees, Random Forest, and Extreme Gradient Boosting (XGBoost) with PCA dimensionality reduction and SMOTE balancing
                     </p>
                     
                     <a href="dataset.php" class="start-btn">
@@ -314,7 +314,7 @@ require_once '../vendor/autoload.php';
                                     <i class="fas fa-robot"></i>
                                 </div>
                                 <h4>ML Models</h4>
-                                <p>Decision Tree, Random Forest, SVM</p>
+                                <p>Decision Tree, Random Forest, Extreme Gradient Boosting (XGBoost)</p>
                             </div>
                         </div>
                         

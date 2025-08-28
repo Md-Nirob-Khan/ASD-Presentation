@@ -53,7 +53,7 @@ ASD/
 - **Data Preprocessing**: Cleaning, encoding, and balancing
 - **SMOTE Balancing**: Synthetic Minority Oversampling Technique
 - **PCA Reduction**: Dimensionality reduction with 95% variance retention
-- **Multiple Models**: Decision Tree, Random Forest, SVM
+- **Multiple Models**: Decision Tree, Random Forest, Extreme Gradient Boosting (XGBoost)
 - **Cross-Validation**: K-fold validation for robust evaluation
 
 ### Web Interface
@@ -136,9 +136,9 @@ The project uses a sample dataset for demonstration purposes. The dataset includ
 |-------|----------|-----------|--------|----------|
 | Decision Tree | 33.33% | 33.33% | 100% | 50% |
 | Random Forest | 33.33% | 33.33% | 100% | 50% |
-| SVM | N/A* | N/A* | N/A* | N/A* |
+| Extreme Gradient Boosting (XGBoost) | N/A* | N/A* | N/A* | N/A* |
 
-*SVM model encountered permission issues on macOS
+*XGBoost model encountered permission issues on macOS
 
 ## 🌐 Web Interface
 

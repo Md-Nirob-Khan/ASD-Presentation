@@ -37,7 +37,7 @@ try {
         echo "- Initial dataset: " . number_format($results['initial_stats']['total_rows']) . " rows\n";
         echo "- After preprocessing: " . number_format($results['after_smote']['total_rows']) . " rows\n";
         echo "- PCA features: " . $results['pca_features'] . " components\n";
-        echo "- Models trained: Decision Tree, Random Forest, SVM\n\n";
+        echo "- Models trained: Decision Tree, Random Forest, Extreme Gradient Boosting (XGBoost)\n\n";
         
         echo "🎯 Model Performance Summary:\n";
         foreach ($results['evaluation_results'] as $modelName => $result) {

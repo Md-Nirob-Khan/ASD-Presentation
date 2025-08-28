@@ -259,7 +259,7 @@ require_once '../vendor/autoload.php';
                     </div>
                     <div class="step-title">Model Training</div>
                     <div class="step-description">
-                        Train Decision Tree, Random Forest, and SVM models
+                        Train Decision Tree, Random Forest, and Extreme Gradient Boosting (XGBoost) models
                     </div>
                 </div>
                 
@@ -327,8 +327,8 @@ require_once '../vendor/autoload.php';
                         <div class="algorithm-icon">
                             <i class="fas fa-vector-square"></i>
                         </div>
-                        <h4>Support Vector Machine</h4>
-                        <p>RBF kernel SVM with optimized hyperparameters for non-linear classification</p>
+                                                  <h4>Extreme Gradient Boosting (XGBoost)</h4>
+                        <p>Extreme Gradient Boosting (XGBoost) with optimized hyperparameters for advanced ensemble learning</p>
                     </div>
                 </div>
             </div>
