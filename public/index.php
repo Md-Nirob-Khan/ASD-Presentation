@@ -288,6 +288,210 @@ require_once '../vendor/autoload.php';
                 padding: 8px 4px;
             }
         }
+        
+        /* Pipeline Flowchart Styles */
+        .pipeline-container {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .pipeline-phase {
+            margin-bottom: 50px;
+        }
+        
+        .phase-title {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+            font-size: 1.3rem;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .pipeline-flow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .flow-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .flow-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .flow-step i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        .flow-step span {
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            line-height: 1.3;
+        }
+        
+        /* Step Type Styles */
+        .start-step, .end-step {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            border: 3px solid #fff;
+        }
+        
+        .data-step {
+            background: linear-gradient(45deg, #17a2b8, #6f42c1);
+            border: 3px solid #fff;
+        }
+        
+        .decision-step {
+            background: linear-gradient(45deg, #ffc107, #fd7e14);
+            border: 3px solid #fff;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            min-width: 180px;
+            min-height: 120px;
+        }
+        
+        .smote-step {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            border: 3px solid #fff;
+        }
+        
+        .skip-step {
+            background: linear-gradient(45deg, #6c757d, #495057);
+            border: 3px solid #fff;
+        }
+        
+        .feature-step {
+            background: linear-gradient(45deg, #17a2b8, #6f42c1);
+            border: 3px solid #fff;
+        }
+        
+        .model-step {
+            background: linear-gradient(45deg, #dc3545, #e83e8c);
+            border: 3px solid #fff;
+        }
+        
+        .cv-step {
+            background: linear-gradient(45deg, #fd7e14, #ffc107);
+            border: 3px solid #fff;
+        }
+        
+        .evaluation-step {
+            background: linear-gradient(45deg, #6f42c1, #e83e8c);
+            border: 3px solid #fff;
+        }
+        
+        .metrics-step {
+            background: linear-gradient(45deg, #20c997, #17a2b8);
+            border: 3px solid #fff;
+        }
+        
+        .analysis-step {
+            background: linear-gradient(45deg, #fd7e14, #ffc107);
+            border: 3px solid #fff;
+        }
+        
+        .flow-arrow {
+            font-size: 2rem;
+            color: #667eea;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .flow-branch {
+            display: flex;
+            gap: 40px;
+            margin: 20px 0;
+        }
+        
+        .branch-yes, .branch-no {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .branch-label {
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .models-parallel {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .model-branch {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .metrics-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-top: 10px;
+            font-size: 0.8rem;
+        }
+        
+        .metrics-list span {
+            background: rgba(255,255,255,0.2);
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .pipeline-container {
+                padding: 20px;
+            }
+            
+            .flow-step {
+                min-width: 150px;
+                padding: 15px;
+            }
+            
+            .flow-step span {
+                font-size: 0.8rem;
+            }
+            
+            .models-parallel {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .flow-branch {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -501,49 +705,132 @@ require_once '../vendor/autoload.php';
         
         <div class="features">
             <div class="row justify-content-center">
-                <div class="col-lg-10">
+                <div class="col-lg-12">
                     <h2 class="text-center text-white mb-5">
                         <i class="fas fa-cogs"></i> Research Methodology
                     </h2>
                     
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="feature-card text-center text-white">
-                                <div class="feature-icon">
+                    <!-- ML Pipeline Flowchart -->
+                    <div class="pipeline-container">
+                        <!-- Phase 1: Initial Data Preparation -->
+                        <div class="pipeline-phase">
+                            <h4 class="phase-title">Phase 1: Initial Data Preparation</h4>
+                            <div class="pipeline-flow">
+                                <div class="flow-step start-step">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>Start</span>
+                                </div>
+                                <div class="flow-arrow">↓</div>
+                                
+                                <div class="flow-step data-step">
                                     <i class="fas fa-database"></i>
+                                    <span>Load Dataset</span>
                                 </div>
-                                <h4>Data Preprocessing</h4>
-                                <p>Cleaning, encoding, and balancing with SMOTE</p>
+                                <div class="flow-arrow">↓</div>
+                                
+                                <div class="flow-step data-step">
+                                    <i class="fas fa-cogs"></i>
+                                    <span>Process Data</span>
+                                </div>
+                                <div class="flow-arrow">↓</div>
+                                
+                                <div class="flow-step decision-step">
+                                    <i class="fas fa-question-circle"></i>
+                                    <span>Check Class Imbalance</span>
+                                </div>
+                                
+                                <div class="flow-branch">
+                                    <div class="branch-yes">
+                                        <span class="branch-label">Yes</span>
+                                        <div class="flow-step smote-step">
+                                            <i class="fas fa-balance-scale"></i>
+                                            <span>SMOTE</span>
+                                        </div>
+                                    </div>
+                                    <div class="branch-no">
+                                        <span class="branch-label">No</span>
+                                        <div class="flow-step skip-step">
+                                            <i class="fas fa-forward"></i>
+                                            <span>Skip</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="col-md-3">
-                            <div class="feature-card text-center text-white">
-                                <div class="feature-icon">
+                        <!-- Phase 2: Feature Selection and Model Training -->
+                        <div class="pipeline-phase">
+                            <h4 class="phase-title">Phase 2: Feature Selection and Model Training</h4>
+                            <div class="pipeline-flow">
+                                <div class="flow-step feature-step">
                                     <i class="fas fa-chart-line"></i>
+                                    <span>Feature Selection (PCA)</span>
                                 </div>
-                                <h4>Dimensionality Reduction</h4>
-                                <p>PCA to retain 95% variance</p>
+                                <div class="flow-arrow">↓</div>
+                                
+                                <div class="models-parallel">
+                                    <div class="model-branch">
+                                        <div class="flow-step model-step">
+                                            <i class="fas fa-tree"></i>
+                                            <span>Random Forest Classifier</span>
+                                        </div>
+                                    </div>
+                                    <div class="model-branch">
+                                        <div class="flow-step model-step">
+                                            <i class="fas fa-rocket"></i>
+                                            <span>XGBoost Classifier</span>
+                                        </div>
+                                    </div>
+                                    <div class="model-branch">
+                                        <div class="flow-step model-step">
+                                            <i class="fas fa-sitemap"></i>
+                                            <span>Decision Tree Classifier</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flow-arrow">↓</div>
+                                <div class="flow-step cv-step">
+                                    <i class="fas fa-check-double"></i>
+                                    <span>3-Fold, 5-Fold, 10-Fold<br>Stratified Cross-Validation</span>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="col-md-3">
-                            <div class="feature-card text-center text-white">
-                                <div class="feature-icon">
-                                    <i class="fas fa-robot"></i>
+                        <!-- Phase 3: Model Evaluation and Analysis -->
+                        <div class="pipeline-phase">
+                            <h4 class="phase-title">Phase 3: Model Evaluation and Analysis</h4>
+                            <div class="pipeline-flow">
+                                <div class="flow-step evaluation-step">
+                                    <i class="fas fa-search"></i>
+                                    <span>Find Best Number of Features<br>Best Score</span>
                                 </div>
-                                <h4>ML Models</h4>
-                                <p>Decision Tree, Random Forest, Extreme Gradient Boosting (XGBoost)</p>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-3">
-                            <div class="feature-card text-center text-white">
-                                <div class="feature-icon">
+                                <div class="flow-arrow">↓</div>
+                                
+                                <div class="flow-step metrics-step">
                                     <i class="fas fa-chart-bar"></i>
+                                    <span>Evaluate Models</span>
+                                    <div class="metrics-list">
+                                        <span>• Accuracy</span>
+                                        <span>• Precision</span>
+                                        <span>• Recall</span>
+                                        <span>• F1-Score</span>
+                                        <span>• Confusion Matrix</span>
+                                        <span>• ROC Curve</span>
+                                    </div>
                                 </div>
-                                <h4>Evaluation</h4>
-                                <p>Accuracy, Precision, Recall, F1-Score</p>
+                                <div class="flow-arrow">↓</div>
+                                
+                                <div class="flow-step analysis-step">
+                                    <i class="fas fa-chart-pie"></i>
+                                    <span>Analyze Performance<br>Visualizations & Interpretations</span>
+                                </div>
+                                <div class="flow-arrow">↓</div>
+                                
+                                <div class="flow-step end-step">
+                                    <i class="fas fa-flag-checkered"></i>
+                                    <span>End</span>
+                                </div>
                             </div>
                         </div>
                     </div>
